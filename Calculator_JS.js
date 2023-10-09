@@ -19,20 +19,12 @@ function equals()	//'=' 输出
 	//查找计算幂部分并进行替换
 	while (expstr.search(/(\S*)\^\((\S*)\)/) != -1) {
 		contant = expstr.match(/([^\)]*)\^\(([^\)]*)\)/);
-		expstr = expstr.replace(contant[0], String(power(parseFloat(contant[1]),parseFloat(contant[2]))));
+		expstr = expstr.replace(contant[0], String(Math.pow(parseFloat(contant[1]),parseFloat(contant[2]))));
 	}
 
 	//使用eval()函数进行计算
 	result = eval(expstr);
 	str.value = result;
-}
-function power(p1,p2) // 计算数字的幂
-{
-	p_result = p1;
-	for(var i=1 ;i<p2 ;i++){
-		p_result *= p1;
-	}
-	return p_result;
 }
 function angle()
 {
